@@ -1,0 +1,82 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Text Processing</title>
+</head>
+<body>
+  <h1>Text Processing</h1>
+  <form id="textForm" action="/process" method="POST">
+    <textarea name="text" rows="10" cols="50"></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>Result</h2>
+  <div id="result"></div>
+<img src="shark.png" alt="shark">
+  <script>
+    document.getElementById('textForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const text = formData.get('text');
+
+      fetch('/process', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text })
+      })
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById('result').innerText = result;
+      });
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!-- TASK - 3 -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Avatar App</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Avatar App</h1>
+  <input type="text" id="inputField" placeholder="Enter an email or website address">
+  <button onclick="fetchAvatar()">Get Avatar</button>
+  <div id="output"></div>
+
+  <script>
+    function fetchAvatar() {
+      const input = document.getElementById('inputField').value;
+
+      axios.post('/avatar', { input })
+        .then(response => {
+          const { input, type, imageUrl, error } = response.data;
+
+          if (error) {
+            document.getElementById('output').innerText = `Error: ${error}`;
+          } else {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = type;
+            
+            const output = document.getElementById('output');
+            output.innerHTML = `
+              <p><strong>Input:</strong> ${input}</p>
+              <p><strong>Type:</strong> ${type}</p>
+            `;
+            output.appendChild(img);
+          }
+        })
+        .catch(error => {
+          document.getElementById('output').innerText = `Error: ${error.message}`;
+        });
+    }
+  </script>
+</body>
+</html> -->
